@@ -2,19 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import SearchBar from "../components/SearchBar";
 
-const ExploreWrapper = styled.main`
+const Wrapper = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 35vw;
+  width: 94vw;
   background-color: white;
 `;
 
 const Explore = () => {
   return (
-    <ExploreWrapper>
+    <Wrapper>
       <SearchBar />
-    </ExploreWrapper>
+    </Wrapper>
   );
 };
 

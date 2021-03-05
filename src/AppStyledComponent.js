@@ -2,7 +2,7 @@ import React from "react";
 import Routes from "./Routes";
 import { withRouter } from "react-router-dom";
 import "./App.css";
-import PageLayout from "./components/PageLayout";
+import PageLayout from "./styles/PageLayout";
 
 function AppStyledComponent() {
   return (

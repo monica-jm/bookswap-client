@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 100vw;
   height: 150px;
   padding: 20px;
   border: 0.5px solid lightgray;
@@ -19,18 +18,6 @@ const SearchForm = styled.form`
   align-items: center;
   width: 100%;
   position: relative;
-
-  .searchIcon {
-    position: absolute;
-    top: 15%;
-    left: 10px;
-    transform: translate/margin(-50%);
-    z-index: 9;
-  }
-
-  .settings-icon {
-    top: 15%;
-  }
 `;
 
 const SearchInput = styled.input`

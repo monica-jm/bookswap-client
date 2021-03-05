@@ -5,16 +5,16 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 35vw;
+  width: 94vw;
   background-color: green;
 `;
 
-const Auth = () => {
+const Bookmarks = () => {
   return (
     <Wrapper>
-      <h1>Auth</h1>
+      <h1>Bookmarks</h1>
     </Wrapper>
   );
 };
 
-export default Auth;
+export default Bookmarks;

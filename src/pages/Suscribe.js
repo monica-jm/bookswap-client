@@ -5,16 +5,16 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 35vw;
-  background-color: green;
+  width: 94vw;
+  background-color: yellow;
 `;
 
-const Profile = () => {
+const Suscribe = () => {
   return (
     <Wrapper>
-      <h1>Profile</h1>
+      <h1>Suscribe</h1>
     </Wrapper>
   );
 };
 
-export default Profile;
+export default Suscribe;

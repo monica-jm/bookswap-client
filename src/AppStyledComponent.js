@@ -1,15 +1,22 @@
 import React from "react";
-import Routes from "./Routes";
+import Router from "./Router";
 import { withRouter } from "react-router-dom";
 import "./App.css";
 import PageLayout from "./styles/PageLayout";
+import GlobalStyles from "./styles/GlobalStyles";
+import {AuthProvider} from './hooks/authContext';
+
+
 
 function AppStyledComponent() {
   return (
     <div className="App">
-      <PageLayout>
-        <Routes />
-      </PageLayout>
+      <GlobalStyles/>
+      <AuthProvider>
+        <PageLayout>
+          <Router />
+        </PageLayout>
+      </AuthProvider>
     </div>
   );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
-import Button from "./Button";
+import ActionButton from "./ActionButton";
 
 const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: center;
-  width: 6vw;
+  width: 8vw;
   height: 100vh;
   background-color:#EEEDED;
   box-shadow: 5px 5px 10px rgba(178, 178, 178, .30);
@@ -30,7 +30,6 @@ const NavtItem = styled.div`
   text-decoration: none;
   font-weight: regular;
   padding: 20px 0px;
-  font-size: .8rem;
   margin: 25px 0px;
   &:hover {
     background-color: #E7E6E6;
@@ -53,19 +52,22 @@ const NavBar = () => {
       </Link>
       <Nav>
         <NavtItem>
-          <MenuLink to="/explore">Explore</MenuLink>
+          <NavLink to="/book/explore">Explore</NavLink>
         </NavtItem>
         <NavtItem>
-          <MenuLink to="/bookmarks">Bookmarks</MenuLink>
+          <NavLink to="/book/bookmarks">Bookmarks</NavLink>
         </NavtItem>
         <NavtItem>
-          <MenuLink to="/swaps">Swaps</MenuLink>
+          <NavLink to="/book/swaps">Swaps</NavLink>
         </NavtItem>
         <NavtItem>
-          <MenuLink to="/profile">Profile</MenuLink>
+          <MenuLink to="/auth/profile">Profile</MenuLink>
+        </NavtItem>
+        <NavtItem>
+          <MenuLink to="/auth">Log in</MenuLink>
         </NavtItem>
       </Nav>
-      <Button> Add </Button>
+      <ActionButton> Add </ActionButton>
     </Wrapper>
   );
 };

@@ -1,21 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import {SearchInput} from "../components";
+import { SignupForm } from '../components';
 
 const Wrapper = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 94vw;
-  background-color: blue;
+  align items: center;
+  width:100%;
 `;
 
-const Explore = () => {
+const Signup = () => {
   return (
     <Wrapper>
-      <SearchInput/>
+        <SignupForm/>
     </Wrapper>
   );
 };
 
-export default Explore;
+export default Signup;

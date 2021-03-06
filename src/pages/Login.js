@@ -1,21 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import {SearchInput} from "../components";
+import { LoginForm } from '../components';
 
 const Wrapper = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 94vw;
-  background-color: blue;
+  align items: center;
+  width:100%;
 `;
 
-const Explore = () => {
+const Login = () => {
+  const [value, setValue] = React.useState("");
   return (
     <Wrapper>
-      <SearchInput/>
+        <LoginForm/>
     </Wrapper>
   );
 };
 
-export default Explore;
+export default Login;

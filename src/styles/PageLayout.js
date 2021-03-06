@@ -5,11 +5,11 @@ import NavBar from "../components/NavBar";
 const Wrapper = styled.html`
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   align-items: flex-start;
   max-width: 100vw;
   font-family: Helvetica, Arial, sans-serif;
-  font-size:14px;
+  font-size:16px;
 `;
 
 const PageLayout = ({ children }) => {

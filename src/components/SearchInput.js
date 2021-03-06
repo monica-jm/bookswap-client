@@ -20,7 +20,7 @@ const SearchForm = styled.form`
   position: relative;
 `;
 
-const SearchInput = styled.input`
+const InputBar = styled.input`
   background-color: #e6e6e6;
   border-radius: 100px;
   border-style: none;
@@ -30,14 +30,14 @@ const SearchInput = styled.input`
   width: 100%;
 `;
 
-const SearchBar = () => {
+const SearchInput= () => {
   return (
     <Wrapper>
       <SearchForm>
-        <SearchInput type="text" placeholder="Find a book" />
+        <InputBar type="text" placeholder="Find a book" />
       </SearchForm>
     </Wrapper>
   );
 };
 
-export default SearchBar;
+export default SearchInput;

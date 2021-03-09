@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
-import ActionButton from "./ActionButton";
+import ActionButton from "../ActionButton";
 
 const Wrapper = styled.header`
   display: flex;

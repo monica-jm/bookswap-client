@@ -1,21 +1,49 @@
-import React from "react";
-import styled from "styled-components";
-import {SearchInput} from "../components";
+  
+import { useState, useEffect } from "react"
+import { Col, Row, Card, Typography, Skeleton } from "antd"
+import { getAllBooks } from "../services/book"
+import { Link } from "react-router-dom"
+const { Title } = Typography
 
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 94vw;
-  background-color: blue;
-`;
+function Explore() {
+  const [books, setBooks] = useState(null)
 
-const Explore = () => {
+  useEffect(() => {
+    async function getBooks() {
+      const {
+        data: { books }
+      } = await getAllBooks()
+
+      setBooks(books)
+    }
+    getBooks()
+  }, [])
+
   return (
-    <Wrapper>
-      <SearchInput/>
-    </Wrapper>
-  );
-};
+    <Row gutter={[16, 16]}>
+      <Col span={16} offset={4}>
+        <Title>Explore:</Title>
+      </Col>
+      {books ? (
+        books.map(book => (
+          <Col xs={{ span: 16 }} md={{ span: 8 }} key={book._id}>
+            <Card
+              title={book.name}
+              cover={<img alt='example' src={book.url} />}
+              extra={<Link to={`/resource/${book._id}`}>Details</Link>}
+            >
+              <Card.Meta description={book.review} />
+            </Card>
+          </Col>
+        ))
+      ) : (
+        <Col span={16} offset={4}>
+          <Skeleton active />     
+        </Col>       
+      )}
+    </Row>
+  )
+}
 
-export default Explore;
+export default Explore
+

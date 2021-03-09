@@ -5,6 +5,7 @@ import "./App.css";
 import PageLayout from "./styles/PageLayout";
 import GlobalStyles from "./styles/GlobalStyles";
 import {AuthProvider} from './hooks/authContext';
+import LayoutApp from "./components/LayoutApp";
 
 
 
@@ -13,9 +14,9 @@ function AppStyledComponent() {
     <div className="App">
       <GlobalStyles/>
       <AuthProvider>
-        <PageLayout>
+        <LayoutApp>
           <Router />
-        </PageLayout>
+        </LayoutApp>
       </AuthProvider>
     </div>
   );

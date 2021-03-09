@@ -12,12 +12,12 @@ export const AuthProvider = props => {
   async function signup(newUser) {
     console.log('algo', newUser)
     try {
-      const { data } = await signupFn(newUser)
+    {/* const { data } = */}  await signupFn(newUser)
       setUser(newUser)
       console.log(newUser)
     } catch (error) {
       message.error(error.response.data.message)
-      console.log('Aqui esta el error', error.response)
+      console.dir('Aqui esta el error', error.response)
   
     }
   }
@@ -28,7 +28,7 @@ export const AuthProvider = props => {
     try {
       const { data } = await loginFn(user)
       setUser(data)
-      console.log(data)
+      console.dir(data)
     } catch (error) {
       message.error(error.response.data.message)
       console.log('Aqui esta el error', error.response)

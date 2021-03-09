@@ -1,8 +1,7 @@
-export {default as NavBar} from './NavBar';
+export {default as LayoutApp} from './LayoutApp';
 export {default as ActionButton} from './ActionButton';
-export {default as SearchInput} from './SearchInput';
-export {default as Input} from './Input';
-export {default as LoginForm} from './LoginForm';
-export {default as SignupForm} from './SignupForm';
-export {default as Container} from './Container';
+export {default as LoggedOutRoute} from './LoggedOutRoute'; 
+export {default as PrivateRoute} from './PrivateRoute'
+
+
 

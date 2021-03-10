@@ -24,7 +24,7 @@ function Signup() {
 
   return (
     <Row gutter={[16, 16]}>
-      <Col xs={24} sm={24} md={{ span: 5, offset: 10 }}>
+      <Col xs={24} sm={24} md={{ span: 5, offset: 9 }}>
         <Typography.Title level={1}>Signup</Typography.Title>
         <Form form={form} onFinish={handleSubmit} layout='vertical'>
         <Form.Item name='username' label='Username:'>

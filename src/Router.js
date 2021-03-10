@@ -8,8 +8,6 @@ import Bookmarks from "./pages/Bookmarks"
 import Explore from "./pages/Explore"
 import AddBook from "./pages/AddBook"
 import BookDetail from "./pages/BookDetail"
-// import PrivateRoute from "./components/PrivateRoute"
-// import LoggedOutRoute from "./components/LoggedOutRoute"
 
 function Router() {
   return (
@@ -20,7 +18,7 @@ function Router() {
 
         <LoggedOutRoute path="/auth" component={Login} />
         <LoggedOutRoute path="/signup" component={Signup} />
-        <PrivateRoute path="/auth/profile" component={Profile} />
+        <PrivateRoute path="/profile" component={Profile} />
 
         <Route path = "/book/create" component={AddBook}/>
         <Route path="/book/explore" component={Explore} />

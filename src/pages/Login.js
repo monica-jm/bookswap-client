@@ -16,7 +16,7 @@ function Login() {
 
   return (
     <Row gutter={[16, 16]}>
-      <Col xs={24} sm={24} md={{ span: 5, offset: 10 }}>
+      <Col xs={24} sm={24} md={{ span: 5, offset: 9 }}>
         <Typography.Title level={1}>Login</Typography.Title>
         <Form form={form} onFinish={handleSubmit} layout='vertical'>
           <Form.Item name='email' label='Email:'>

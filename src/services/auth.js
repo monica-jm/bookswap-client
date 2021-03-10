@@ -18,6 +18,7 @@ export const loginFn = (user) => _axios.post("/auth/login", user);
 export const logoutFn = (_) => _axios.get("/auth/logout");
 export const getCurrentUser = (_) => _axios.get("/auth/session");
 export const confirmUser = (confirmationCode) => _axios.post(`/auth/confirmed/${confirmationCode}`)
+export const updateAvatar = avatar => _axios.post("/auth/avatar/change", { avatar })
 
 // export const updateAvatar = (avatar) =>
 //   _axios.post("/avatar/change", { avatar });

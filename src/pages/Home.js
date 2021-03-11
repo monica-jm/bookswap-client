@@ -28,6 +28,7 @@ function Home() {
         books.map(book => (
           <Col xs={{ span: 16 }} md={{ span: 8 }} key={book._id}>
             <Card
+              hoverable
               title={book.name}
               cover={<img alt='example' src={book.bookCover} />}
               extra={<Link to={`/resource/${book._id}`}>Details</Link>}

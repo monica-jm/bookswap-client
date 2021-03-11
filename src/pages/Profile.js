@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useAuthInfo } from '../hooks/authContext';
 // import { useState, useEffect } from "react";
 import {
@@ -8,15 +8,11 @@ import {
   Card,
   Skeleton, 
   Upload,
-  message,
-  Button, 
   Divider
 } from "antd"
-import { LoadingOutlined, PlusOutlined, EditOutlined, EllipsisOutlined, SettingOutlined } from "@ant-design/icons"
+import { LoadingOutlined, PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons"
 import { updateAvatar } from "../services/auth"
 import axios from "axios"
-import { Link } from 'react-router-dom'
-
 
 const { Meta } = Card;
 
@@ -44,11 +40,7 @@ function Profile() {
     setLoading(false)
     setUser(user)
   }
-  const capitalize = s => {
-    if (typeof s !== "string") return ""
-    return s.charAt(0).toUpperCase() + s.slice(1)
-  }
-  
+  console.log(user.bookshelf)
   return (
     <Row gutter={[16, 16]}>
       {user ? (
@@ -83,6 +75,7 @@ function Profile() {
         user.bookshelf.map(book => (
             <Col xs={24} sm={24} md={{ span:8}} key={book._id}> 
               <Card
+                hoverable
                 cover={
                   <img
                     alt="Book Cover"
@@ -90,13 +83,11 @@ function Profile() {
                   />
                 }
                 actions={[
-                  <SettingOutlined key="setting" />,
                   <EditOutlined key="edit" />,
-                  <EllipsisOutlined key="ellipsis" />,
+                  <DeleteOutlined key="delete" />
                 ]}
               >
                 <Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                   title="Card title"
                   description={`${book.review}`}
                 />

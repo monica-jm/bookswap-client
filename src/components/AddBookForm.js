@@ -54,12 +54,15 @@ function AddBookForm({closeModal}) {
 
   async function handleSubmit(book) {
     try {
-        await createBook({...book, bookCover:secureUrl, "lat":"19.41655056326856",
+        const {data} = await createBook({...book, bookCover:secureUrl, "lat":"19.41655056326856",
 		"lng":"-99.17123705128316"});
+        console.log("Lo que sea", data)
+        setUser(data)
         closeModal()
         message.success('Book added to your bookshelf')
       } catch (error) {
           console.log(error)
+
         message.error(error.response.data.message);
       }
     }

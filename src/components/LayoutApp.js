@@ -7,10 +7,10 @@ import {
     PlusOutlined
 
   } from '@ant-design/icons';
-import AddBookForm from "./AddBookForm";
+import {AddBookForm, Logo, EyeMove} from "./";
 
-const { Content, Footer, Sider } = Layout
-
+const { Content, Sider, Header, Footer } = Layout
+const geekBlue = 'geekblue';
 
 function LayoutApp({ children }) {
   const { user, logout } = useAuthInfo()
@@ -20,30 +20,18 @@ function LayoutApp({ children }) {
   const closeModal = () => setShowModal(false )
 
   return (
-    <Layout className='layout'>
-         <Sider
-             style={{
-             overflow: 'auto',
-             height: '100vh',
-             position: 'fixed',
-             left: 0,
-             paddingTop: '64px',
-             backgroundColor:'white',
-             boxShadow: '5px 5px 10px rgba(178, 178, 178, .30)',
-             zIndex: 1,
-            }}
-            >       
-                <div className='logo' />
-                <Menu theme="light" mode="inline" defaultSelectedKeys={['4']}>
+    <Layout className='layout'style={{backgroundColor:"white"}}>
+         <Header style={{backgroundColor:'white',boxShadow:'5px 5px 10px rgba(178, 178, 178, .30)', zIndex: 1}}>
+                <Menu theme="light" mode="horizontal" defaultSelectedKeys={['4']}>
                 {user && (
                     <>
                     <Menu.Item key='1'>
                         <Link to='/profile'>
                         <Avatar alt='avatar' src={user.avatar} size='small' />
-                        &nbsp;&nbsp;{user.username}
+                        &nbsp;&nbsp;&nbsp;{user.username}
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key='2' icon={<BookOutlined />}>
+                    <Menu.Item key='2'>
                         <Link to='/book/bookmarks'>Bookmarks</Link>       
                     </Menu.Item>
                     </>
@@ -69,28 +57,31 @@ function LayoutApp({ children }) {
                     </>
                 ):(
                     <Redirect to='/'/>
-                )}
+                )}              
                 </Menu>
-        </Sider>
-        <Layout className="site-layout" style={{ marginLeft: 200, marginRight: 50, backgroundColor:"white"}}>
-            <Content style={{ margin: '24px 16px 0', overflow: 'initial', height: "90vh"}}>
+        </Header>
+        <Layout className="site-layout" style={{ marginLeft: 40, marginRight:0, backgroundColor:"white"}}>
+            <Content style={{overflow: 'initial', height: "100vh"}}>
                 <Row>
-                <Col s={24} sm={24} md={{ span: 16, offset: 4 }}>
+                <Col s={24} sm={24} md={{ span: 1}}>
+                <div className="logo" style={{  }}>
+                {user && (
+                    <>
+                    <Tooltip title="Add a Book" placement="right" color={geekBlue}>
+                    <Button icon={<EyeMove/>} onClick={openModal} style={{backgroundColor:"white", borderWidth:0 }}> 
+                    <h2 style={{paddingTop:90}}>BookSwapp</h2>
+                    </Button></Tooltip>
+                     </>
+                )}
+                </div>
+                </Col>
+                <Col s={24} sm={24} md={{ span: 16, offset: 3 }}>
                     <div className="site-layout-background" style={{ padding: 24, textAlign: 'center'}}>
                         {children}
                     </div>
                 </Col>
                 </Row>
             </Content>  
-            {user && (
-                <Footer style={{ textAlign: "right", height:"10vh"}}>
-                    <>
-                     <Tooltip title="Add Book">
-                         <Button size="large" shape='circle' type='primary' onClick={openModal} style={{ position:"Fixed", margin:"0px"}}><PlusOutlined /></Button>
-                    </Tooltip>
-                     </>
-                </Footer> 
-                )}
             <Col s={24} sm={24} md={{ span: 24, offset: 4 }}>
                 <>
                 <Modal

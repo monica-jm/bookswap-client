@@ -1,9 +1,11 @@
   
 import { useState, useEffect } from "react"
 import { Col, Row, Card, Typography, Skeleton } from "antd"
+import { MoreOutlined, HeartOutlined, MailOutlined } from "@ant-design/icons"
 import { getAllBooks } from "../services/book"
 import { Link } from "react-router-dom"
 const { Title } = Typography
+const { Meta } = Card;
 
 function Explore() {
   const [books, setBooks] = useState(null)
@@ -28,11 +30,19 @@ function Explore() {
         books.map(book => (
           <Col xs={{ span: 16 }} md={{ span: 8 }} key={book._id}>
             <Card
-              title={book.name}
+              hoverable
               cover={<img alt='example' src={book.bookCover} />}
-              extra={<Link to={`/book/${book._id}`}>Details</Link>}
+              actions={[
+                <MailOutlined key="swap"/>,
+                <HeartOutlined key="delete"/>,
+                <MoreOutlined key="more"/>
+              ]}
+              title={book.name}
             >
-              <Card.Meta description={book.review} />
+              <Meta
+                  title={`${book.name}`}
+                  description={`${book.review}`}
+                />
             </Card>
           </Col>
         ))

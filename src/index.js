@@ -6,9 +6,11 @@ import Router from "./Router"
 import reportWebVitals from "./reportWebVitals"
 import "antd/dist/antd.css"
 import { AuthProvider } from "./hooks/authContext"
+import GlobalStyles from "./styles/GlobalStyles"
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyles/>
     <AuthProvider>
       <Router />
     </AuthProvider>

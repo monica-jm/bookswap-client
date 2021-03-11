@@ -1,14 +1,15 @@
 import {createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-    body{
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+    html{
         margin: 0; 
         padding:0;
-        background: white;
+        background-color: white;
         font-family: Montserrat, sans-serif; 
         font-weight: 500;
         font-size:16px;
-        min-height:100vh;
     }
 
     h1{
@@ -51,4 +52,18 @@ export default createGlobalStyle`
         font-weight: 300;
         font-size:.8 rem;
     }
+
+    .eye{
+        background-color:"white", 
+        border-width:0,
+    }
+    .eye:hover{
+        background-color:"white", 
+        border-width:0,
+    }
+    .eye:active{
+        background-color:"white", 
+        border-width:0,
+    }
+
 `

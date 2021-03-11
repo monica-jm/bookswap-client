@@ -28,7 +28,7 @@ export const AuthProvider = props => {
     try {
       const { data } = await loginFn(user)
       setUser(data)
-      console.dir(data)
+      console.log(data)
     } catch (error) {
       message.error(error.response.data.message)
       console.log('Aqui esta el error', error.response)

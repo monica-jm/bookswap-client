@@ -1,38 +1,102 @@
-  import { useState } from "react"
-import { Col, Row, Card, Typography, Skeleton } from "antd"
-import { getAllBooks } from "../services/book"
-import { Link } from "react-router-dom"
-import { useAuthInfo } from "../hooks/authContext"
-const { Title } = Typography
+import { useState } from "react"
+import { useAuthInfo } from '../hooks/authContext';
+// import { useState, useEffect } from "react";
+import {
+  Col,
+  Row,
+  Avatar,
+  Card,
+  Skeleton, 
+  Upload,
+  Divider,
+  Tooltip,
+  Modal
+} from "antd"
+import {HeartOutlined, MoreOutlined, MailOutlined } from "@ant-design/icons"
+import { updateAvatar } from "../services/auth"
+import axios from "axios"
 
-function Home() {
-  const [books, setBooks] = useState(null)
-  const { user } = useAuthInfo()
+const { Meta } = Card;
+const geekBlue = 'geekblue';
 
+function Bookmarks() {
+
+  const { user, setUser } = useAuthInfo()
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+  console.log(user.bookmarks)
+
+  const bookmarked = () => {
+
+  };
   return (
     <Row gutter={[16, 16]}>
-      <Col span={16} offset={4}>
-        <Title>Bookmarks</Title>
+      {user ? (
+      <Col xs={24} sm={24} md={{ span: 24 }}>
+        <Card
+          style={{ width:"100%", marginTop: 16 }}>
+          <Meta
+                style={{textAlign:"left"}}
+                avatar= {<Avatar src={user.avatar} style={{width:"55px", height:"55px"}}/>}
+                title= {`Hi ${user.username}`}
+                description="Here are some books you've bookmarked"/>
+        </Card>
       </Col>
+        ):(
+          <Col xs={24} sm={24} md={{ span: 16, offset: 4 }}>
+          <Skeleton active/>          
+          </Col>
+        )}
       {user.bookmarks ? (
         user.bookmarks.map(book => (
-          <Col xs={{ span: 16 }} md={{ span: 8 }} key={book._id}>
-            <Card
-              title={book.name}
-              cover={<img alt='example' src={book.bookCover} />}
-              extra={<Link to={`/resource/${book._id}`}>Details</Link>}
-            >
-              <Card.Meta description={book.review} />
-            </Card>
-          </Col>
+            <Col xs={24} sm={24} md={{ span:8}} key={book._id}> 
+              <Card
+                hoverable
+                cover={
+                  <img
+                    alt="Book Cover"
+                    src={book.bookCover}   
+                  />
+                }
+                actions={[
+                  <Tooltip title="Send swap request" placement="top" color={geekBlue}>
+                    <MailOutlined key="swap"/>
+                  </Tooltip>,
+                  <Tooltip title="Remove bookmark" placement="top" color={geekBlue}>
+                     <HeartOutlined key="bookmark" onClick={bookmarked}/>
+                  </Tooltip>,
+                  <Tooltip title="See the review" placement="top" color={geekBlue}>
+                    <MoreOutlined key="more" onClick={showModal}/>
+                  </Tooltip>
+                ]}
+              >
+                <Meta
+                  title={`${book.title}`}
+                />
+                <Modal title={`${book.title}`} footer={false} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                {book.review}
+              </Modal>
+              </Card>
+            </Col>
         ))
       ) : (
         <Col span={16} offset={4}>
           <Skeleton active />     
-        </Col>       
+        </Col> 
       )}
     </Row>
   )
 }
 
-export default Home
+export default Bookmarks

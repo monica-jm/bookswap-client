@@ -8,18 +8,34 @@ import {
   Card,
   Skeleton, 
   Upload,
-  Divider
+  Divider,
+  Tooltip,
+  Modal
 } from "antd"
-import { LoadingOutlined, PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons"
+import { LoadingOutlined, PlusOutlined, EditOutlined, DeleteOutlined, MoreOutlined } from "@ant-design/icons"
 import { updateAvatar } from "../services/auth"
 import axios from "axios"
 
 const { Meta } = Card;
+const geekBlue = 'geekblue';
 
 function Profile() {
 
   const { user, setUser } = useAuthInfo()
   const [loading, setLoading] = useState(false)
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   const uploadButton = (
     <div>
@@ -80,17 +96,29 @@ function Profile() {
                   <img
                     alt="Book Cover"
                     src={book.bookCover}
+                    style={{height:'300px', objectFit: 'contain', paddingTop: '10px'}}
+                    
                   />
                 }
                 actions={[
-                  <EditOutlined key="edit" />,
-                  <DeleteOutlined key="delete" />
+                  <Tooltip title="Edit" placement="top" color={geekBlue}>
+                    <EditOutlined key="edit" />
+                  </Tooltip>,
+                  <Tooltip title="Delete book" placement="top" color={geekBlue}>
+                    <DeleteOutlined key="delete" />           
+                  </Tooltip>,
+                  <Tooltip title="See the review" placement="top" color={geekBlue}>
+                    <MoreOutlined key="more" onClick={showModal}/>
+                </Tooltip>
                 ]}
               >
                 <Meta
-                  title="Card title"
-                  description={`${book.review}`}
+                  title={`${book.title}`}
+                  description={book.author}
                 />
+                <Modal title={`${book.title}`} footer={false} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                {book.review}
+              </Modal>
               </Card>
             </Col>
         ))

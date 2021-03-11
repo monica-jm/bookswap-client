@@ -41,17 +41,21 @@ function Signup() {
           </Button>
         </Form>
         <Divider id="socialStrategies">Or log in with</Divider>
-          <Row justify="center" align="middle" className="socialLogin">
-            <Col span={6} align="middle">
-              <a href="http://localhost:3001/auth/google">
-                <GoogleOutlined style={{ fontSize: '24px', color: '#08c' }} />
-              </a>
+        <Row gutter={[48, 8]} justify="space-between">
+            <Col align="center">
+              <div style={{width:60, height:60, borderRadius:50, display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"#DB4437"}}>
+                <a href="http://localhost:3001/auth/google">
+                  <GoogleOutlined style={{fontSize: "1.8rem", color:"white"}}/>
+                </a>
+              </div>
             </Col>
-            <Col span={6} align="middle">
-              <a href="http://localhost:3001/auth/facebook">
-                <FacebookOutlined style={{ fontSize: '24px', color: '#08c' }} />
-              </a>
-            </Col><br/><br/><br/>
+            <Col align="center">
+              <div style={{width:60, height:60, borderRadius:50, display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"#4267B2"}}>
+                <a href="http://localhost:3001/auth/facebook">
+                  <FacebookOutlined style={{fontSize: "1.8rem", color:"white"}}/>
+                </a>
+              </div>
+            </Col>
             <Col span={24} align="middle" className="changeAuth">
               <Text>
                 Already have an account? <Link to='/auth'>Login</Link>

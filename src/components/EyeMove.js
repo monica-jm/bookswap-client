@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  font-size: 6rem;
+  font-size: 3.8rem;
   position:absolute;
+  left:100px;
+  top:25px;
   width: 100%;
   height:100%;
   cursor: pointer;
@@ -27,21 +29,18 @@ const EyeLid = styled.div`
   position: absolute;
   left: 0.25em;
   top: 0.3em;
-  background-color: white;
+  background-color: none;
   border-radius: 50%;
   animation: blink forwards infinite 10s ease-in-out;
-  border-style:solid; 
-  border-color: black;
-  border-width: 1px;
 `
 
 const Eye = styled.div`
   position: relative;
   display: inline-block;
   border-radius: 50%;
-  width: 75%;
-  height: 75%;
-  background-color: black;
+  width: 50%;
+  height: 50%;
+  background-color: #2f54eb;
   border-radius: 50%;
 `
 const mouseMove = (e) =>{
@@ -62,7 +61,7 @@ function EyeMove() {
         <Eyes className="eyes">
           <Eye className="eye"></Eye>
         </Eyes>
-      </EyeLid>
+      </EyeLid>   
     </Container>
   );
 }

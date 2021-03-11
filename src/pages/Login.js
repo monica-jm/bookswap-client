@@ -30,18 +30,23 @@ function Login() {
           </Button>
         </Form>
         <Divider id="socialStrategies">Or log in with</Divider>
-          <Row justify="center" align="middle" className="socialLogin">
-            <Col span={6} align="middle">
-              <a href="http://localhost:3001/auth/google">
-                <GoogleOutlined />
-              </a>
+          <Row gutter={[48, 8]} justify="space-between">
+            <Col align="center">
+              <div style={{width:60, height:60, borderRadius:50, display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"#DB4437"}}>
+                <a href="http://localhost:3001/auth/google">
+                  <GoogleOutlined style={{fontSize: "1.8rem", color:"white"}}/>
+                </a>
+              </div>
             </Col>
-            <Col span={6} align="middle">
-              <a href="http://localhost:3001/auth/facebook">
-                <FacebookOutlined />
-              </a>
-            </Col><br/><br/><br/>
-            <Col span={24} align="middle" className="changeAuth">
+       
+            <Col align="center">
+              <div style={{width:60, height:60, borderRadius:50, display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"#4267B2"}}>
+                <a href="http://localhost:3001/auth/facebook">
+                  <FacebookOutlined style={{fontSize: "1.8rem", color:"white"}}/>
+                </a>
+              </div>
+            </Col>
+            <Col span={24} align="middle">
               <Text>
                 Don't have an account? <Link to='/signup'>Sign up here!</Link>
               </Text>

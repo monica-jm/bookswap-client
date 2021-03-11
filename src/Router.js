@@ -7,7 +7,6 @@ import Profile from "./pages/Profile"
 import Bookmarks from "./pages/Bookmarks"
 import Explore from "./pages/Explore"
 import AddBook from "./pages/AddBook"
-import BookDetail from "./pages/BookDetail"
 
 function Router() {
   return (
@@ -22,7 +21,6 @@ function Router() {
 
         <Route path = "/book/create" component={AddBook}/>
         <Route path="/book/explore" component={Explore} />
-        <Route path = "/book/:bookId" component={BookDetail}/>
         <Route path="/book/bookmarks" component={Bookmarks} />
         {/* <Route path="/book/swaps" component={Swaps} /> */}
 

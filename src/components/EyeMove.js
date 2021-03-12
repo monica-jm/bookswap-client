@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  font-size: 3.8rem;
+  font-size: 2.5rem;
   position:absolute;
-  left:100px;
-  top:25px;
-  width: 100%;
-  height:100%;
+  left:112px;
+  top:13px;
+  width: 100vw;
+  height:100vh;
   cursor: pointer;
+  padding:50px;
+  
 `
 const Eyes = styled.div`
   text-align: center;
@@ -19,6 +21,7 @@ const Eyes = styled.div`
   position: absolute;
   left: 0.25em;
   top: 0.3em;
+  
 `
 const EyeLid = styled.div`
   text-align: center;

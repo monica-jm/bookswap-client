@@ -117,7 +117,8 @@ function AddBookForm({closeModal}) {
                 <Option value={30}>Teen</Option>
                 <Option value={31}>True Crime</Option>
                 <Option value={32}>Special editions</Option>
-                <Option value={33}>Other</Option>  
+                <Option value={33}>Novel</Option>
+                <Option value={34}>Other</Option>  
              </Select>        
           </Form.Item>
           <Form.Item name='bookCover' label='BookCover'>
@@ -134,10 +135,10 @@ function AddBookForm({closeModal}) {
           <Form.Item name='review' label='Review'>
             <TextArea rows={4} type='text' />
           </Form.Item>
-          <Form.Item name='location' label='Location'>
+          {/* <Form.Item name='location' label='Location'>
             <Input rows={4} type='text' />
             <Text>* Choose a public space so other Swappers know where they can meet with you, remeber you should never share a personal address.</Text>
-          </Form.Item>
+          </Form.Item> */}
           <Button type='primary' htmlType='submit' block size='large'>
             Add Book
           </Button>

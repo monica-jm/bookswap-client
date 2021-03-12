@@ -22,9 +22,9 @@ function LayoutApp({ children }) {
   return (
     <Layout span={24} className='site-layout'style={{backgroundColor:"white"}}>
          <Header style={{ display:'flex', justifyContent:"space-between", alignItems:"center", backgroundColor:'white',boxShadow:'5px 5px 10px rgba(178, 178, 178, .30)'}}>
-                <div  className="logo" style={{backgroundColor:"red"}}>
+                <div  className="logo">
                     <Link to="/">
-                        <img style={{width:"550px", position:"absolute"}} src="https://res.cloudinary.com/dyvopd0iz/image/upload/v1615492605/BookSwapp/logo_dtylzm.svg" />
+                        <img style={{width:"300px"}} src="https://res.cloudinary.com/dyvopd0iz/image/upload/v1615492605/BookSwapp/logo_dtylzm.svg" />
                     </Link>
                     <EyeMove/>
                 </div>
@@ -63,18 +63,18 @@ function LayoutApp({ children }) {
                 )}              
                 </Menu>
         </Header>
-            <Content style={{height: "100vh", widht:"100vw"}}>
+            <Content>
                 <Row gutter={16, 48}>
                 <Col s={24} sm={24} md={{ span: 1}}>
-                    <div style={{ margin:"90px, 45px", height:60, width:60, position:"fixed", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#2f54eb", borderRadius:"50%"}}>
                     {user && (
+                    <div style={{ left:"55px", top:"100px", height:"60px", width:"60px", position:"absolute", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#2f54eb", borderRadius:"50%"}}>
                         <>
                         <Tooltip title="Add a Book" placement="bottom" color="#061178">
                                 <Button style={{border:"none"}} ghost shape="round" icon={<PlusOutlined style={{fontSize:"1.5rem"}}/>} onClick={openModal}/> 
                         </Tooltip>
                         </>
-                    )}
                     </div>
+                    )}       
                 </Col>
                 <Col s={24} sm={24} md={{ span: 16, offset: 4 }}>
                     <div style={{ padding: 24, textAlign: 'center'}}>

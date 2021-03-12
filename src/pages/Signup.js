@@ -13,11 +13,12 @@ function Signup() {
   const [form] = Form.useForm()
   const { signup } = useAuthInfo()
 
-  async function handleSubmit(userInfo) {
+  async function handleSubmit(newUser) {
     try{
-      await signup(userInfo)
-      message.succes('Account created')
+      await signup(newUser)
+      message.success('Account created')
     }catch(error){
+      
       message.error(error.response.data.message)
   }
 }

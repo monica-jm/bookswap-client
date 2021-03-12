@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAuthInfo } from '../hooks/authContext';
 // import { useState, useEffect } from "react";
 import {
@@ -14,14 +14,23 @@ import {
 } from "antd"
 import {HeartOutlined, MoreOutlined, MailOutlined } from "@ant-design/icons"
 import { updateAvatar } from "../services/auth"
+import { updateBookmarks } from "../services/book"
 import axios from "axios"
 
 const { Meta } = Card;
 const geekBlue = 'geekblue';
 
 function Bookmarks() {
-
   const { user, setUser } = useAuthInfo()
+  const { book, setBook } = useState(null)
+
+  useEffect (() =>{
+    async function updateBookmarks(user, book){
+
+    }
+    updateBookmarks()
+  }, [])
+
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {
@@ -74,7 +83,7 @@ function Bookmarks() {
                     <MailOutlined key="swap"/>
                   </Tooltip>,
                   <Tooltip title="Remove bookmark" placement="top" color={geekBlue}>
-                     <HeartOutlined key="bookmark" onClick={bookmarked}/>
+                     <HeartOutlined name="bookmarks" key="bookmark" onClick={bookmarked}/>
                   </Tooltip>,
                   <Tooltip title="See the review" placement="top" color={geekBlue}>
                     <MoreOutlined key="more" onClick={showModal}/>

@@ -14,6 +14,7 @@ import {
 } from "antd"
 import { LoadingOutlined, PlusOutlined, EditOutlined, DeleteOutlined, MoreOutlined } from "@ant-design/icons"
 import { updateAvatar } from "../services/auth"
+import {deleteBook, updateBook } from "../services/book"
 import axios from "axios"
 
 const { Meta } = Card;
@@ -57,6 +58,12 @@ function Profile() {
     setUser(user)
   }
   console.log(user.bookshelf)
+
+  const bookDelete = (id) => {
+    console.log(id)
+    deleteBook(id)
+  }
+
   return (
     <Row gutter={[16, 16]}>
       {user ? (
@@ -105,7 +112,7 @@ function Profile() {
                     <EditOutlined key="edit" />
                   </Tooltip>,
                   <Tooltip title="Delete book" placement="top" color={geekBlue}>
-                    <DeleteOutlined key="delete" />           
+                    <DeleteOutlined key="delete" onClick={()=>{bookDelete(book._id)}} />           
                   </Tooltip>,
                   <Tooltip title="See the review" placement="top" color={geekBlue}>
                     <MoreOutlined key="more" onClick={showModal}/>

@@ -53,11 +53,11 @@ function Explore() {
 
   return (
     <Row gutter={[16, 16]}>
-      <Col span={24}>
+      {/* <Col span={24}>
         <Card>
           <Search placeholder="Find a book" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </Card>
-      </Col>
+      </Col> */}
       {books ? (
         books.map(book => (
           <Col xs={{ span: 16 }} md={{ span: 8 }} key={book._id}>

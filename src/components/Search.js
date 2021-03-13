@@ -3,15 +3,12 @@ import React from 'react';
 
 const { Search } = Input;
 
-function SearchField({searchTerm, setSearchTerm}) {
-    const handleSearch = e =>{
-        setSearchTerm(e.target.value)
-    }
+function SearchField({onSearch, value}) {
     return (
       <div>
         <Search
           placeholder="input search text"
-          onChange={handleSearch}
+          onChange={onSearch}
           style={{ width: 600 }}
         />
       </div>

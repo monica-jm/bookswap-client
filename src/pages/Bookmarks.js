@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAuthInfo } from '../hooks/authContext';
+import { getAllBooks, updateBookmarks } from "../services/book"
 // import { useState, useEffect } from "react";
 import {
   Col,
@@ -14,7 +15,6 @@ import {
 } from "antd"
 import {HeartOutlined, MoreOutlined, MailOutlined } from "@ant-design/icons"
 import { updateAvatar } from "../services/auth"
-import { updateBookmarks } from "../services/book"
 import axios from "axios"
 
 const { Meta } = Card;
@@ -46,9 +46,15 @@ function Bookmarks() {
   };
   console.log(user.bookmarks)
 
-  const bookmarked = () => {
-
-  };
+ //----------Bookmark o like----------
+ const addBookmark = (id) => {
+  console.log(id)
+  updateBookmarks(id)
+  const newBookmarks = user.bookmarks.filter(( bookmark ) => 
+    bookmark._id != id
+  )
+  setUser({...user, bookmarks: newBookmarks})
+}
   return (
     <Row gutter={[16, 16]}>
       {user ? (
@@ -83,7 +89,7 @@ function Bookmarks() {
                     <MailOutlined key="swap"/>
                   </Tooltip>,
                   <Tooltip title="Remove bookmark" placement="top" color={geekBlue}>
-                     <HeartOutlined name="bookmarks" key="bookmark" onClick={bookmarked}/>
+                     <HeartOutlined name="bookmarks" key="bookmark" onClick={()=>{addBookmark(book._id)}}/>
                   </Tooltip>,
                   <Tooltip title="See the review" placement="top" color={geekBlue}>
                     <MoreOutlined key="more" onClick={showModal}/>

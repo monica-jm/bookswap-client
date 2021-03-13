@@ -4,7 +4,7 @@ import axios from "axios";
 //Enviroment variables
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "/auth" /* TODO: Production route */
+    ? "https://bookswapp-project.herokuapp.com/api"
     : "http://localhost:3001/api";
 
 export const _axios = axios.create({
